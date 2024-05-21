@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import LocationList from "./components/LocationList";
 import WeatherDetails from "./components/WeatherDetails";
 import axios from "axios";
@@ -6,9 +6,14 @@ import axios from "axios";
 function App() {
   const [locations, setLocations] = useState([]);
   const [weatherData, setWeatherData] = useState(null);
+  const renderAfterCalled = useRef(false);
 
   useEffect(() => {
-    fetchData();
+    if (!renderAfterCalled.current) {
+      fetchData();
+    }
+
+    renderAfterCalled.current = true;
   }, []);
 
   const fetchData = async () => {
