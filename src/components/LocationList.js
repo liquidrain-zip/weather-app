@@ -40,6 +40,7 @@ const LocationList = ({ locations, setSelectedLocation }) => {
                 key={location.name}
                 action
                 onClick={() => selectLocation(location)}
+                className="list-item"
               >
                 {location.name} <br />
                 Latitude: {location.label_location.latitude} <br />

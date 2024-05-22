@@ -9,6 +9,7 @@ import "./App.css";
 function App() {
   const [locations, setLocations] = useState([]);
   const [weatherData, setWeatherData] = useState(null);
+  const [weatherArea, setWeatherArea] = useState(null);
 
   const renderAfterCalled = useRef(false);
 
@@ -24,18 +25,21 @@ function App() {
     axios
       .get(`https://api.data.gov.sg/v1/environment/2-hour-weather-forecast`)
       .then(function ({ data }) {
-        // handle success
         setWeatherData(data);
         setLocations(data.area_metadata);
+        // TODO: toast success here
       })
       .catch(function (error) {
-        // handle error
         console.error(error);
+        // TODO: toast error here
       });
   };
 
   const handleSelectedLocation = (location) => {
-    console.log(location);
+    const weaArea = weatherData.items[0].forecasts.filter(
+      (wea) => wea["area"].toLowerCase() === location.name.toLowerCase()
+    )[0];
+    setWeatherArea(weaArea);
   };
 
   return (
@@ -46,10 +50,12 @@ function App() {
             <Navbar.Brand>Singapore 2-Hour Weather Forecast</Navbar.Brand>
           </Container>
         </Navbar>
+        {weatherArea && (
+          <Col className="overflow-auto mh-100vh" md={5}>
+            <WeatherDetails weatherArea={weatherArea} />
+          </Col>
+        )}
         <Col className="overflow-auto mh-100vh">
-          <WeatherDetails weatherData={weatherData} />
-        </Col>
-        <Col md={7} className="overflow-auto mh-100vh">
           <LocationList
             locations={locations}
             setSelectedLocation={handleSelectedLocation}

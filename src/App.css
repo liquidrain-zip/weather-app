@@ -20,3 +20,11 @@ body,
   z-index: 1;
   padding: 1rem;
 }
+
+.list-item {
+  cursor: pointer;
+}
+
+.weather-image {
+  width: 70%;
+}
