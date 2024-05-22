@@ -110,7 +110,7 @@ const WeatherDetails = ({ weatherArea }) => {
       case "Partly Cloudy Night":
         src = PartlyCloudyNight;
         break;
-      case "Rain":
+      case "Showers":
         src = Rain;
         break;
       case "Raindrop":
@@ -119,7 +119,7 @@ const WeatherDetails = ({ weatherArea }) => {
       case "Raindrops":
         src = Raindrops;
         break;
-      case "Thunderstorms Day Rain":
+      case "Thundery Showers":
         src = ThunderstormsDayRain;
         break;
       case "Thunderstorms Day":
@@ -158,13 +158,13 @@ const WeatherDetails = ({ weatherArea }) => {
   };
 
   return (
-    <Card className="h-100 text-center">
+    <Card className="h-100 text-center weather-details">
       <Card.Body>
         {weatherImage()}
-        <Card.Subtitle className="mb-2 text-muted">
-          {weatherArea.area}
-        </Card.Subtitle>
-        <Card.Text>{weatherArea.forecast}</Card.Text>
+        <Card.Text>
+          <h3 className="text-custom">{weatherArea.area}</h3> <br />
+          <h4 className="text-custom">{weatherArea.forecast}</h4>
+        </Card.Text>
       </Card.Body>
     </Card>
   );

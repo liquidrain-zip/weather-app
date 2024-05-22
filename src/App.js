@@ -13,8 +13,11 @@ function App() {
 
   const renderAfterCalled = useRef(false);
 
+  const currentdate = new Date().toLocaleString();
+
   useEffect(() => {
     if (!renderAfterCalled.current) {
+      // TODO: do a interval fetch?
       fetchData();
     }
 
@@ -40,6 +43,7 @@ function App() {
       (wea) => wea["area"].toLowerCase() === location.name.toLowerCase()
     )[0];
     setWeatherArea(weaArea);
+    fetchData();
   };
 
   return (
@@ -48,6 +52,9 @@ function App() {
         <Navbar bg="dark" data-bs-theme="dark" className="bg-body-tertiary">
           <Container>
             <Navbar.Brand>Singapore 2-Hour Weather Forecast</Navbar.Brand>
+            <Navbar.Text className="justify-content-end ">
+              {currentdate}
+            </Navbar.Text>
           </Container>
         </Navbar>
         {weatherArea && (
