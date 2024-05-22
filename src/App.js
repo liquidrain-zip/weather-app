@@ -4,6 +4,7 @@ import axios from "axios";
 
 import LocationList from "./components/LocationList";
 import WeatherDetails from "./components/WeatherDetails";
+import AlertDismissible from "./components/AlertDismissable";
 import "./App.css";
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
   const [weatherData, setWeatherData] = useState(null);
   const [weatherArea, setWeatherArea] = useState(null);
   const [currentdate, setCurrentdate] = useState(new Date().toLocaleString());
+  const [error, setError] = useState(null);
 
   const renderAfterCalled = useRef(false);
 
@@ -42,6 +44,7 @@ function App() {
       })
       .catch(function (error) {
         console.error(error);
+        setError(error);
       });
   };
 
@@ -63,6 +66,7 @@ function App() {
           </Navbar.Text>
         </Container>
       </Navbar>
+      <AlertDismissible error={error} />
       <Col className="weather-details">
         <WeatherDetails weatherArea={weatherArea} />
       </Col>

@@ -1,5 +1,7 @@
 ## Singapore 2-Hour Weather Forecast React App
 
+![Singapore 2-Hour Weather Forecast React App](/public/app-landing.png)
+
 This React application fetches and displays the 2-hour weather forecast for different locations in Singapore from the Singapore's 2-Hour Weather Forecast API: [https://api.data.gov.sg/v1/environment/2-hour-weather-forecast](https://api.data.gov.sg/v1/environment/2-hour-weather-forecast).
 
 **Features:**
@@ -39,3 +41,4 @@ This code prioritizes the following:
 **Credits**
 
 - Weather icons are free to use created by [Bas Milius](https://github.com/basmilius/weather-icons)
+- Background image from [Gov.sg](https://www.gov.sg/article/meet-the-kumars)
