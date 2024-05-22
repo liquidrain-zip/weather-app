@@ -1,17 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Card, ListGroup, FloatingLabel, Form } from "react-bootstrap";
 
 const LocationList = ({ locations, setSelectedLocation }) => {
   const [locationsDisplayed, setLocationsDisplayed] = useState([]);
-
-  useEffect(() => {
-    setLocationsDisplayed(locations);
-  }, [locations]);
+  const [searchValue, setSearchValue] = useState("");
 
   const handleSearch = (e) => {
-    const searchValue = e.target.value;
+    setSearchValue(e.target.value);
     const filteredLocations = locations.filter((loc) =>
-      loc["name"].toLowerCase().includes(searchValue.toLowerCase())
+      loc["name"].toLowerCase().includes(e.target.value.toLowerCase())
     );
     setLocationsDisplayed(filteredLocations);
   };
@@ -22,18 +19,23 @@ const LocationList = ({ locations, setSelectedLocation }) => {
 
   return (
     <Card>
-      <Card.Body className="pt-0">
+      <Card.Body>
         <div className="fixed-label-container">
           <FloatingLabel controlId="floatingInput" label="Search location">
             <Form.Control
               type="text"
               placeholder="ang mo kio"
               onChange={handleSearch}
+              value={searchValue}
             />
           </FloatingLabel>
         </div>
-        {locationsDisplayed && (
-          <ListGroup variant="flush" as="ol">
+        {locationsDisplayed && searchValue && (
+          <ListGroup
+            variant="flush"
+            as="ol"
+            className="overflow-auto mh-100vh location-list"
+          >
             {locationsDisplayed.map((location) => (
               <ListGroup.Item
                 as="li"
@@ -42,7 +44,7 @@ const LocationList = ({ locations, setSelectedLocation }) => {
                 onClick={() => selectLocation(location)}
                 className="list-item"
               >
-                {location.name} <br />
+                <b>{location.name}</b> <br />
                 Latitude: {location.label_location.latitude} <br />
                 Longitude: {location.label_location.longitude}
               </ListGroup.Item>

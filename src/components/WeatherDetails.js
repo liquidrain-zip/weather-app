@@ -158,13 +158,13 @@ const WeatherDetails = ({ weatherArea }) => {
   };
 
   return (
-    <Card className="h-100 text-center weather-details">
+    <Card className="text-center">
       <Card.Body>
         {weatherImage()}
-        <Card.Text>
-          <h3 className="text-custom">{weatherArea.area}</h3> <br />
+        <div>
+          <h3 className="text-custom">{weatherArea.area}</h3>
           <h4 className="text-custom">{weatherArea.forecast}</h4>
-        </Card.Text>
+        </div>
       </Card.Body>
     </Card>
   );

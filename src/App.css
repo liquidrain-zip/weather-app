@@ -3,23 +3,24 @@ body,
 #root {
   height: 100%;
   margin: 0;
-  background-color: #689c64;
+  background-color: #68b46a;
+  background-image: url(images/bg.jpg);
+  background-repeat: no-repeat;
+  background-size: 1421px;
+  background-position: center;
 }
 
 .mh-100vh {
-  max-height: calc(100vh - 56px);
-}
-
-.overflow-auto {
-  overflow: auto;
+  max-height: calc(100vh - 624px);
 }
 
 .fixed-label-container {
   position: sticky;
   top: 0;
-  background-color: white;
   z-index: 1;
   padding: 1rem;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
 .list-item {
@@ -27,20 +28,35 @@ body,
 }
 
 .weather-image {
-  width: 60%;
-}
-
-.weather-details {
-  background-image: url(images/bg.jpg);
-  background-repeat: no-repeat, repeat;
-  background-size: cover;
-  box-shadow: inset 0 0 0 2000px rgba(102, 98, 86, 0.3);
+  width: 250px;
+  margin-bottom: -30px;
+  margin-top: -50px;
 }
 
 .text-custom {
   color: white;
+  font-weight: bold;
+  margin-bottom: 0;
 }
 
 .card {
   border: none;
+  background: transparent;
+}
+
+.navbar-brand {
+  font-size: medium;
+}
+
+.weather-details {
+  min-height: 49vh;
+}
+
+.list-item:hover {
+  background-color: #8fb5a3;
+}
+
+.location-list {
+  max-width: 500px;
+  margin: 0 auto;
 }
