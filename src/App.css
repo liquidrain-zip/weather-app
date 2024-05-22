@@ -12,3 +12,11 @@ body,
 .overflow-auto {
   overflow: auto;
 }
+
+.fixed-label-container {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 1;
+  padding: 1rem;
+}

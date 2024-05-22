@@ -34,6 +34,10 @@ function App() {
       });
   };
 
+  const handleSelectedLocation = (location) => {
+    console.log(location);
+  };
+
   return (
     <Container fluid className="d-flex flex-column">
       <Row className="flex-grow-1">
@@ -46,7 +50,10 @@ function App() {
           <WeatherDetails weatherData={weatherData} />
         </Col>
         <Col md={7} className="overflow-auto mh-100vh">
-          <LocationList locations={locations} />
+          <LocationList
+            locations={locations}
+            setSelectedLocation={handleSelectedLocation}
+          />
         </Col>
       </Row>
     </Container>
