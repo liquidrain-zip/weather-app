@@ -35,3 +35,7 @@ This code prioritizes the following:
 - Implement error handling for API calls and display appropriate messages to the user.
 - Include loading states while data is being fetched.
 - Enhance the UI design with styles and additional weather details.
+
+**Credits**
+
+- Weather icons are free to use created by [Bas Milius](https://github.com/basmilius/weather-icons)
