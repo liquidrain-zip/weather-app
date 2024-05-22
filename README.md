@@ -6,8 +6,8 @@ This React application fetches and displays the 2-hour weather forecast for diff
 
 **Features:**
 
-- Displays a list of selectable locations in Singapore.
-- Shows the current weather forecast (text and temperature) for the selected location.
+- Displays a list of selectable locations in Singapore with its latitude and longitude.
+- Shows the current weather forecast (type of weather and area) for the selected location.
 
 **Getting Started:**
 
@@ -22,6 +22,7 @@ The application will be available at http://localhost:3000/
 - `App.js`: Main application component.
 - `LocationList.js`: Component to display the list of locations.
 - `WeatherDetails.js`: Component to display the weather information for a location.
+- `AlertDismissable.js`: Component to display API errors.
 
 **Evaluation:**
 
@@ -38,7 +39,7 @@ This code prioritizes the following:
 - Include loading states while data is being fetched.
 - Enhance the UI design with styles and additional weather details.
 
-**Credits**
+**All credits goes to**
 
 - Weather icons are free to use created by [Bas Milius](https://github.com/basmilius/weather-icons)
 - Background image from [Gov.sg](https://www.gov.sg/article/meet-the-kumars)
